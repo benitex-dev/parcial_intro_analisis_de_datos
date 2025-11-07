@@ -4,18 +4,18 @@
 
 int anio = 2022;
 
-string[] tasasBancoNacion = new string[3];
+double[] tasasBancoNacion = new double[3];
 
-string[] tasasBancoProvincia = new string[3];
+double[] tasasBancoProvincia = new double[3];
 
-string[] tasasBancoHipotecario = new string[3];
+double[] tasasBancoHipotecario = new double[3];
 
 //-----------------  Banco Nación  -------------------------
 
 for (int i = 0; i < tasasBancoNacion.Length; i++)
 {
     Console.WriteLine("Ingrese la tasa anual del año "+(anio)+" para el Banco Nación:");
-    tasasBancoNacion[i] = Console.ReadLine();
+    tasasBancoNacion[i] = double.Parse(Console.ReadLine());
     anio = anio + 1;
     Console.Clear();
 }
@@ -32,7 +32,7 @@ anio = 2022;
 for (int i = 0; i < tasasBancoProvincia.Length; i++)
 {
     Console.WriteLine("Ingrese la tasa anual del año " + (anio) + " para el Banco Provincia:");
-    tasasBancoProvincia[i] = Console.ReadLine();
+    tasasBancoProvincia[i] = double.Parse(Console.ReadLine());
     anio = anio + 1;
     Console.Clear();
 }
@@ -49,7 +49,7 @@ anio = 2022;
 for (int i = 0; i < tasasBancoHipotecario.Length; i++)
 {
     Console.WriteLine("Ingrese la tasa anual del año " + (anio) + " para el Banco Hipotecario:");
-    tasasBancoHipotecario[i] = Console.ReadLine();
+    tasasBancoHipotecario[i] = double.Parse(Console.ReadLine());
     anio = anio + 1;
     Console.Clear();
 }
@@ -64,5 +64,17 @@ for (int i = 0; i < tasasBancoHipotecario.Length; i++)
 
 
 //calculos que se deben realizar con las datos ingresados por el usuario
+
+// Punto 2): Calcular el promedio de las tasas anuales de cada banco
+double tasaPromedioBancoNacion = (tasasBancoNacion[0] + tasasBancoNacion[1] + tasasBancoNacion[2]) / 3;
+double tasaPromedioBancoProvincia = (tasasBancoProvincia[0] + tasasBancoProvincia[1] + tasasBancoProvincia[2]) / 3;
+double tasaPromedioBancoHipotecario = (tasasBancoHipotecario[0] + tasasBancoHipotecario[1] + tasasBancoHipotecario[2]) / 3;
+
+Console.Clear();
+Console.WriteLine("Tasa promedio Banco Nación: " + tasaPromedioBancoNacion + "%");
+Console.WriteLine("Tasa promedio Banco Provincia: " + tasaPromedioBancoProvincia + "%");
+Console.WriteLine("Tasa promedio Banco Hipotecario: " + tasaPromedioBancoHipotecario + "%");
+
+
 //resultados que se deben mostrar por pantalla
 //comparar distintas opciones para elegir la mejor
