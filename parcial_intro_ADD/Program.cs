@@ -252,12 +252,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         ActualizarMejorOpcion(totalTrimestralHipotecario, "Banco Hipotecario", "Trimestral");
 
         capitalInicial = 850000;
-         
-        //BuscarMaximo (totalMensualNacion, totalTrimNacion, totalAnualNacion, totalMensualProvincia, totalTrimProvincia, totalAnualProvincia, totalMensualHipotecario, totalTrimestralHipotecario, capitalAnualHipotecario);
     }
-
-
-
 }
 
 void ActualizarMejorOpcion(double rendimientoNuevo, string nombreBanco, string modalidad)
@@ -269,65 +264,4 @@ void ActualizarMejorOpcion(double rendimientoNuevo, string nombreBanco, string m
     }
 }
 
-
-//resultados que se deben mostrar por pantalla
-
-
-
-//comparar distintas opciones para elegir la mejor
-//void BuscarMaximo(double totalMensualNacion, double totalTrimNacion, double totalAnualNacion, double totalMensualProvincia, double totalTrimProvincia, double totalAnualProvincia, double totalMensualHipotecario, double totalTrimHipotecario, double totalAnualHipotecario)
-//{
-//    double maximo = totalMensualNacion;
-//    string opcion = "Banco Nación (Mensual)";
-
-//    if (totalTrimNacion > maximo)
-//    {
-//        maximo = totalTrimNacion;
-//        opcion = "Banco Nación (Trimestral)";
-//    }
-//    if (totalAnualNacion > maximo)
-//    {
-//        maximo = totalAnualNacion;
-//        opcion = "Banco Nación (Anual)";
-//    }
-//    if (totalMensualProvincia > maximo)
-//    {
-//        maximo = totalMensualProvincia;
-//        opcion = "Banco Provincia (Mensual)";
-//    }
-//    if (totalTrimProvincia > maximo)
-//    {
-//        maximo = totalTrimProvincia;
-//        opcion = "Banco Provincia (Trimestral)";
-//    }
-//    if (totalAnualProvincia > maximo)
-//    {
-//        maximo = totalAnualProvincia;
-//        opcion = "Banco Provincia (Anual)";
-//    }
-//    if (totalMensualHipotecario > maximo)
-//    {
-//        maximo = totalMensualHipotecario;
-//        opcion = "Banco Hipotecario (Mensual)";
-//    }
-//    if (totalTrimHipotecario > maximo)
-//    {
-//        maximo = totalTrimHipotecario;
-//        opcion = "Banco Hipotecario (Trimestral)";
-//    }
-//    if (totalAnualHipotecario > maximo)
-//    {
-//        maximo = totalAnualHipotecario;
-//        opcion = "Banco Hipotecario (Anual)";
-//    }
-
-//    // Mostrar resultado final
-//    Console.WriteLine("==============================================");
-//    Console.WriteLine("           MEJOR OPCIÓN ENCONTRADA            ");
-//    Console.WriteLine("==============================================");
-//    Console.WriteLine($"La opción más rentable es: {opcion}");
-//    Console.WriteLine($"Con un rendimiento total de: ${maximo:F2}");
-//    Console.WriteLine("==============================================");
-
-//}
 
