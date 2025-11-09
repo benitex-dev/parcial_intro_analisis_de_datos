@@ -108,16 +108,16 @@ double tasaPromedioBancoHipotecario = tasasBancoHipotecario.Average();
 
 Console.Clear();
 Console.WriteLine("--- PROMEDIOS DE TASAS ANUALES ---");
-Console.WriteLine("Tasa promedio Banco Nación: " + tasaPromedioBancoNacion + "%");
-Console.WriteLine("Tasa promedio Banco Provincia: " + tasaPromedioBancoProvincia + "%");
-Console.WriteLine("Tasa promedio Banco Hipotecario: " + tasaPromedioBancoHipotecario + "%");
+Console.WriteLine($"Tasa promedio Banco Nación: {tasaPromedioBancoNacion:F2} %");
+Console.WriteLine($"Tasa promedio Banco Provincia: {tasaPromedioBancoProvincia:F2} %");
+Console.WriteLine($"Tasa promedio Banco Hipotecario: {tasaPromedioBancoHipotecario:F2} %");
 Console.WriteLine("\nPresione Enter para calcular los rendimientos...");
 Console.ReadLine();
 Console.Clear();
 
-CalcularYMostrarRendimientos("Banco Nación", tasaPromedioBancoNacion, capitalInicial, tasasBancoNacion[2]);
-CalcularYMostrarRendimientos("Banco Provincia", tasaPromedioBancoProvincia, capitalInicial, tasasBancoProvincia[2]);
-CalcularYMostrarRendimientos("Banco Hipotecario", tasaPromedioBancoHipotecario, capitalInicial, tasasBancoHipotecario[2]);
+CalcularYMostrarRendimientos("Banco Nación", tasaPromedioBancoNacion, capitalInicial);
+CalcularYMostrarRendimientos("Banco Provincia", tasaPromedioBancoProvincia, capitalInicial);
+CalcularYMostrarRendimientos("Banco Hipotecario", tasaPromedioBancoHipotecario, capitalInicial);
 
 Console.WriteLine("\nPresione Enter para calcular la mejor opcion...");
 Console.ReadLine();
@@ -132,14 +132,14 @@ Console.WriteLine($"Con un rendimiento total de: ${mejorRendimiento - capitalIni
 Console.WriteLine("==============================================");
 Console.ReadLine();
 
-void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, double capitalInicial,double tasaActual)
+void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, double capitalInicial)
 {
     if (nombreBanco == "Banco Nación")
     {
         Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa promedio: {tasaAnualPromedio:F2}%) ---");
 
         rendMensualNacion = tasaAnualPromedio / 12;
-        rendAnualNacion = tasaActual;
+        rendAnualNacion = tasaAnualPromedio;
         rendTrimNacion = tasaAnualPromedio / 4;
 
 
@@ -187,7 +187,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa promedio: {tasaAnualPromedio:F2}%) ---");
 
         rendMensualProvincia = tasaAnualPromedio /12;
-        rendAnualProvincia = tasaActual;
+        rendAnualProvincia = tasaAnualPromedio;
         rendTrimProvincia = tasaAnualPromedio /4;
 
         rendMensualProvincia = rendMensualProvincia / 100.0;
@@ -225,7 +225,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa {tasaAnualPromedio:F2}%) ---");
 
         rendMensualHipotecario = tasaAnualPromedio / 12;
-        rendAnualHipotecario = tasaActual;
+        rendAnualHipotecario = tasaAnualPromedio;
         rendTrimHipotecario = tasaAnualPromedio / 4;
 
         rendMensualHipotecario = rendMensualHipotecario / 100.0;
