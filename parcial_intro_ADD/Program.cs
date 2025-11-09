@@ -123,24 +123,73 @@ Console.WriteLine("\nPresione Enter para calcular la mejor opcion...");
 Console.ReadLine();
 Console.Clear();
 
-Console.WriteLine("==============================================");
-Console.WriteLine("           MEJOR OPCIÓN ENCONTRADA            ");
-Console.WriteLine("==============================================");
-Console.WriteLine($"La opción más rentable es: {mejorOpcion}");
-Console.WriteLine($"Con un rendimiento total de: ${mejorRendimiento:F2}");
-Console.WriteLine("==============================================");
 
 //resultados que se deben mostrar por pantalla
 
 
 
 //comparar distintas opciones para elegir la mejor
+void BuscarMaximo(double totalMensualNacion, double totalTrimNacion, double totalAnualNacion, double totalMensualProvincia, double totalTrimProvincia, double totalAnualProvincia, double totalMensualHipotecario, double totalTrimHipotecario, double totalAnualHipotecario)
+{
+    double maximo = totalMensualNacion;
+    string opcion = "Banco Nación (Mensual)";
+
+    if (totalTrimNacion > maximo)
+    {
+        maximo = totalTrimNacion;
+        opcion = "Banco Nación (Trimestral)";
+    }
+    if (totalAnualNacion > maximo)
+    {
+        maximo = totalAnualNacion;
+        opcion = "Banco Nación (Anual)";
+    }
+    if (totalMensualProvincia > maximo)
+    {
+        maximo = totalMensualProvincia;
+        opcion = "Banco Provincia (Mensual)";
+    }
+    if (totalTrimProvincia > maximo)
+    {
+        maximo = totalTrimProvincia;
+        opcion = "Banco Provincia (Trimestral)";
+    }
+    if (totalAnualProvincia > maximo)
+    {
+        maximo = totalAnualProvincia;
+        opcion = "Banco Provincia (Anual)";
+    }
+    if (totalMensualHipotecario > maximo)
+    {
+        maximo = totalMensualHipotecario;
+        opcion = "Banco Hipotecario (Mensual)";
+    }
+    if (totalTrimHipotecario > maximo)
+    {
+        maximo = totalTrimHipotecario;
+        opcion = "Banco Hipotecario (Trimestral)";
+    }
+    if (totalAnualHipotecario > maximo)
+    {
+        maximo = totalAnualHipotecario;
+        opcion = "Banco Hipotecario (Anual)";
+    }
+
+    // Mostrar resultado final
+    Console.WriteLine("==============================================");
+    Console.WriteLine("           MEJOR OPCIÓN ENCONTRADA            ");
+    Console.WriteLine("==============================================");
+    Console.WriteLine($"La opción más rentable es: {opcion}");
+    Console.WriteLine($"Con un rendimiento total de: ${maximo:F2}");
+    Console.WriteLine("==============================================");
+
+}
 
 void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, double capitalInicial,double tasaActual)
 {
     if (nombreBanco == "Banco Nación")
     {
-        Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa {tasaAnualPromedio:F2}%) ---");
+        Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa promedio: {tasaAnualPromedio:F2}%) ---");
 
         rendMensualNacion = tasaAnualPromedio / 12;
         rendAnualNacion = tasaActual;
@@ -156,7 +205,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         for (int i = 0; i < 12; i++)
         {
             capitalInicial *= (1 + rendMensualNacion);
-            Console.WriteLine("Mes: " + (i + 1) + "Rendimiento: " + capitalInicial);
+            Console.WriteLine("Mes " + (i + 1) + ":"+ "    Rendimiento: " + capitalInicial);
 
         }
         double totalMensualNacion = capitalInicial;
@@ -165,7 +214,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
 
         //Mostrar por pantalla rendimiento anual
         totalAnualNacion = capitalInicial * (1 + rendAnualNacion);
-        Console.WriteLine("Rendimiento Anual =" + totalAnualNacion);
+        Console.WriteLine("Rendimiento Anual= " + totalAnualNacion);
 
 
         for (int i = 0; i < 4; i++)
@@ -174,7 +223,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
             capitalInicial *= (1 + rendTrimNacion);
 
 
-            Console.WriteLine((i + 1) + "Trimestre    Rendimiento =" + capitalInicial);
+            Console.WriteLine("Trimestre " + (i + 1) +  ":    Rendimiento= " + capitalInicial);
 
 
         }
@@ -185,7 +234,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
 
     if (nombreBanco == "Banco Provincia")
     {
-        Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa {tasaAnualPromedio:F2}%) ---");
+        Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa promedio: {tasaAnualPromedio:F2}%) ---");
 
         rendMensualProvincia = tasaAnualPromedio /12;
         rendAnualProvincia = tasaActual;
@@ -198,14 +247,14 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         for (int i = 0; i < 12; i++)
         {
             capitalInicial *= (1 + rendMensualProvincia);
-            Console.WriteLine("Mes: " + (i + 1) + "Rendimiento: " + capitalInicial);
+            Console.WriteLine("Mes " + (i + 1)+ ":    Rendimiento: " + capitalInicial);
 
         }
         double totalMensualPovincia = capitalInicial;
         capitalInicial = 850000;
 
         capitalAnualProvincia = capitalInicial * (1 + rendAnualProvincia);
-        Console.WriteLine("Rendimiento Anual =" + capitalAnualProvincia);
+        Console.WriteLine("Rendimiento Anual= " + capitalAnualProvincia);
 
 
         for (int i = 0; i < 4; i++)
@@ -253,46 +302,13 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         double totalTrimestralHipotecario = capitalInicial;
 
         capitalInicial = 850000;
+         
+        BuscarMaximo (totalMensualNacion, totalTrimNacion, totalAnualNacion, totalMensualProvincia, totalTrimProvincia, totalAnualProvincia, totalMensualHipotecario, totalTrimestralHipotecario, capitalAnualHipotecario);
     }
 
-
-    //void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio)
-    //{
-    //    if(nombreBanco== "Banco Nación")
-    //    {
-    //        Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa {tasaAnualPromedio:F2}%) ---");
-
-    //    }
-    //    if (nombreBanco == "Banco Provincia")
-    //    {
-    //        Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa {tasaAnualPromedio:F2}%) ---");
-
-    //    }
-    //    if (nombreBanco == "Banco Hipotecario")
-    //    {
-    //        Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa {tasaAnualPromedio:F2}%) ---");
-
-    //    }
-    //    Console.WriteLine($"\n--- CÁLCULOS PARA: {nombreBanco} (Tasa {tasaAnualPromedio:F2}%) ---");
-
-    //    double tasaDecimal = tasaAnualPromedio / 100.0;
-
-    //    // Inversión por un año completo
-    //    double rendimientoAnual = capitalInicial * tasaDecimal;
-
-    //    Console.WriteLine($"Modalidad Anual:     Rendimiento = ${rendimientoAnual:F2}");
-
-    //    ActualizarMejorOpcion(rendimientoAnual, nombreBanco, "Anual");
-
-    //}
+    
 
 
-    void ActualizarMejorOpcion(double rendimientoNuevo, string nombreBanco, string modalidad)
-    {
-        if (rendimientoNuevo > mejorRendimiento)
-        {
-            mejorRendimiento = rendimientoNuevo;
-            mejorOpcion = $"{nombreBanco} - Modalidad: {modalidad}";
-        }
-    }
 }
+
+
