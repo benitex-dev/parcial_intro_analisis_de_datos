@@ -19,7 +19,12 @@ double capitalInicialFijo = 850000;
 for (int i = 0; i < tasasBancoNacion.Length; i++)
 {
     Console.WriteLine("Ingrese la tasa anual del año "+(anio)+" para el Banco Nación:");
-    tasasBancoNacion[i] = double.Parse(Console.ReadLine());
+    while (!double.TryParse(Console.ReadLine(), out tasasBancoNacion[i]) || tasasBancoNacion[i] <= 0)
+    {
+        Console.Clear();
+        Console.WriteLine("(!)Valor inválido. El valor debe ser númerico mayor a 0");
+        Console.WriteLine("Ingrese la tasa anual del año " + (anio) + " para el Banco Nación:");
+    }
     anio = anio + 1;
     Console.Clear();
 }
@@ -39,7 +44,12 @@ anio = 2022;
 for (int i = 0; i < tasasBancoProvincia.Length; i++)
 {
     Console.WriteLine("Ingrese la tasa anual del año " + (anio) + " para el Banco Provincia:");
-    tasasBancoProvincia[i] = double.Parse(Console.ReadLine());
+    while (!double.TryParse(Console.ReadLine(), out tasasBancoProvincia[i]) || tasasBancoProvincia[i] <= 0)
+    {
+        Console.Clear();
+        Console.WriteLine("(!)Valor inválido. El valor debe ser númerico mayor a 0");
+        Console.WriteLine("Ingrese la tasa anual del año " + (anio) + " para el Banco Provincia:");
+    }
     anio = anio + 1;
     Console.Clear();
 }
@@ -59,7 +69,12 @@ anio = 2022;
 for (int i = 0; i < tasasBancoHipotecario.Length; i++)
 {
     Console.WriteLine("Ingrese la tasa anual del año " + (anio) + " para el Banco Hipotecario:");
-    tasasBancoHipotecario[i] = double.Parse(Console.ReadLine());
+    while (!double.TryParse(Console.ReadLine(), out tasasBancoHipotecario[i]) || tasasBancoHipotecario[i] <= 0)
+    {
+        Console.Clear();
+        Console.WriteLine("(!)Valor inválido. El valor debe ser númerico mayor a 0");
+        Console.WriteLine("Ingrese la tasa anual del año " + (anio) + " para el Banco Hipotecario:");
+    }
     anio = anio + 1;
     Console.Clear();
 }
