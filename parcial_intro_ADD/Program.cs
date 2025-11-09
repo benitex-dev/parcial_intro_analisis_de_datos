@@ -12,6 +12,7 @@ double[] tasasBancoHipotecario = new double[3];
 double mejorRendimiento = 0;
 string mejorOpcion = "";
 double capitalInicial = 850000;
+double capitalInicialFijo = 850000;
 
 //-----------------  Banco Nación  -------------------------
 
@@ -104,7 +105,7 @@ Console.WriteLine("==============================================");
 Console.WriteLine("           MEJOR OPCIÓN ENCONTRADA            ");
 Console.WriteLine("==============================================");
 Console.WriteLine($"La opción más rentable es: {mejorOpcion}");
-Console.WriteLine($"Con un rendimiento total de: ${mejorRendimiento - capitalInicial:F2}");
+Console.WriteLine($"Con un rendimiento total de: ${mejorRendimiento:F2}");
 Console.WriteLine("==============================================");
 Console.ReadLine();
 
@@ -128,7 +129,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         {
             capitalInicial *= (1 + rendMensualNacion);
             //Console.WriteLine("Mes " + (i + 1) + ":"+ "    Rendimiento: " + capitalInicial);
-            Console.WriteLine($"Mes  {(i + 1)} : Rendimiento : {capitalInicial:F2}");
+            Console.WriteLine($"Mes  {(i + 1)} : Rendimiento : {capitalInicial - capitalInicialFijo:F2}");
 
         }
         double totalMensualNacion = capitalInicial;
@@ -141,7 +142,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         ActualizarMejorOpcion(capitalAnualNacion, "Banco Nación", "Anual");
 
         Console.WriteLine("\r");
-        Console.WriteLine($"Rendimiento Anual= {capitalAnualNacion:F2}");
+        Console.WriteLine($"Rendimiento Anual= {capitalAnualNacion - capitalInicialFijo:F2}");
         Console.WriteLine("\r");
         for (int i = 0; i < 4; i++)
         {
@@ -150,7 +151,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
 
 
             //Console.WriteLine("Trimestre " + (i + 1) +  ":    Rendimiento= " + capitalInicial);
-            Console.WriteLine($"Trimestre  {(i + 1)} : Rendimiento : {capitalInicial:F2}");
+            Console.WriteLine($"Trimestre  {(i + 1)} : Rendimiento : {capitalInicial - capitalInicialFijo:F2}");
 
 
         }
@@ -177,7 +178,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         {
             capitalInicial *= (1 + rendMensualProvincia);
             //Console.WriteLine("Mes " + (i + 1)+ ":    Rendimiento: " + capitalInicial);
-            Console.WriteLine($"Mes  {(i + 1)} : Rendimiento : {capitalInicial:F2}");
+            Console.WriteLine($"Mes  {(i + 1)} : Rendimiento : {capitalInicial - capitalInicialFijo:F2}");
 
         }
         
@@ -188,7 +189,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         double capitalAnualProvincia = capitalInicial * (1 + rendAnualProvincia);
         ActualizarMejorOpcion(capitalAnualProvincia, "Banco Provincia", "Anual");
         Console.WriteLine("\r");
-        Console.WriteLine($"Rendimiento Anual=  {capitalAnualProvincia:F2}");
+        Console.WriteLine($"Rendimiento Anual=  {capitalAnualProvincia - capitalInicialFijo:F2}");
         Console.WriteLine("\r");
 
 
@@ -197,7 +198,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         {
             capitalInicial *= (1 + rendTrimProvincia);
             //Console.WriteLine((i + 1) + "Trimestre    Rendimiento =" + capitalInicial);
-            Console.WriteLine($"Trimestre  {(i + 1)} : Rendimiento : {capitalInicial:F2}");
+            Console.WriteLine($"Trimestre  {(i + 1)} : Rendimiento : {capitalInicial - capitalInicialFijo:F2}");
         }
         
         double totalTrimestralPovincia = capitalInicial;
@@ -222,7 +223,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         {
             capitalInicial *= (1 + rendMensualHipotecario);
             //Console.WriteLine("Mes: " + (i + 1) + "Rendimiento: " + capitalInicial);
-            Console.WriteLine($"Mes  {(i + 1)} : Rendimiento : {capitalInicial:F2}");
+            Console.WriteLine($"Mes  {(i + 1)} : Rendimiento : {capitalInicial - capitalInicialFijo:F2}");
 
         }
         
@@ -236,7 +237,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         ActualizarMejorOpcion(capitalAnualHipotecario, "Banco Hipotecario", "Anual");
 
         Console.WriteLine("\r");
-        Console.WriteLine($"Rendimiento Anual = { capitalAnualHipotecario:F2}");
+        Console.WriteLine($"Rendimiento Anual = { capitalAnualHipotecario - capitalInicialFijo:F2}");
         Console.WriteLine("\r");
 
 
@@ -245,7 +246,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         {
             capitalInicial *= (1 + rendTrimHipotecario);
             //Console.WriteLine((i + 1) + "Trimestre    Rendimiento =" + capitalInicial);
-            Console.WriteLine($"Trimestre  {(i + 1)} : Rendimiento : {capitalInicial:F2}");
+            Console.WriteLine($"Trimestre  {(i + 1)} : Rendimiento : {capitalInicial - capitalInicialFijo:F2}");
         }
         
         double totalTrimestralHipotecario = capitalInicial;
@@ -257,9 +258,9 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
 
 void ActualizarMejorOpcion(double rendimientoNuevo, string nombreBanco, string modalidad)
 {
-    if (rendimientoNuevo > mejorRendimiento)
+    if ((rendimientoNuevo - capitalInicialFijo) > mejorRendimiento)
     {
-        mejorRendimiento = rendimientoNuevo;
+        mejorRendimiento = rendimientoNuevo - capitalInicialFijo;
         mejorOpcion = $"{nombreBanco} - Modalidad: {modalidad}";
     }
 }
