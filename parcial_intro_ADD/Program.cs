@@ -14,6 +14,14 @@ string mejorOpcion = "";
 double capitalInicial = 850000;
 double capitalInicialFijo = 850000;
 
+Console.WriteLine("==============================================\n");
+Console.WriteLine("    ANALÍSIS DE INVERSION DE PLAZOS FIJOS     ");
+Console.WriteLine("\n==============================================");
+Console.WriteLine("\n");
+Console.WriteLine("Presiones Enter para cargar las tasas de los bancos...");
+Console.ReadLine();
+Console.Clear();
+
 //-----------------  Banco Nación  -------------------------
 
 for (int i = 0; i < tasasBancoNacion.Length; i++)
@@ -31,6 +39,10 @@ for (int i = 0; i < tasasBancoNacion.Length; i++)
 
 anio = 2022;
 
+Console.WriteLine("==============================================");
+Console.WriteLine("                 Banco Nacion                 ");
+Console.WriteLine("==============================================");
+Console.WriteLine("\n");
 for (int i = 0; i < tasasBancoNacion.Length; i++)
 {
     Console.WriteLine("Tasa anual anio "+(anio)+ " del banco nación: "+tasasBancoNacion[i]);
@@ -56,6 +68,10 @@ for (int i = 0; i < tasasBancoProvincia.Length; i++)
 
 anio = 2022;
 
+Console.WriteLine("==============================================");
+Console.WriteLine("              Banco Provincia                 ");
+Console.WriteLine("==============================================");
+Console.WriteLine("\n");
 for (int i = 0; i < tasasBancoProvincia.Length; i++)
 {
     Console.WriteLine("Tasa anual anio " + (anio) + " del Banco Provincia: " + tasasBancoProvincia[i]);
@@ -81,6 +97,10 @@ for (int i = 0; i < tasasBancoHipotecario.Length; i++)
 
 anio = 2022;
 
+Console.WriteLine("==============================================");
+Console.WriteLine("            Banco Hipotecario                 ");
+Console.WriteLine("==============================================");
+Console.WriteLine("\n");
 for (int i = 0; i < tasasBancoHipotecario.Length; i++)
 {
     Console.WriteLine("Tasa anual anio " + (anio) + " del Banco Hipotecario: " + tasasBancoHipotecario[i]);
