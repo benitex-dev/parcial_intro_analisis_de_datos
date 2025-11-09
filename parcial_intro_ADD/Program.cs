@@ -13,30 +13,6 @@ double mejorRendimiento = 0;
 string mejorOpcion = "";
 double capitalInicial = 850000;
 
-double rendMensualProvincia = 0;
-double rendAnualProvincia = 0;
-double rendTrimProvincia= 0;
-
-double rendMensualNacion = 0;
-double rendAnualNacion = 0;
-double rendTrimNacion = 0;
-
-double rendMensualHipotecario = 0;
-double rendAnualHipotecario = 0;
-double rendTrimHipotecario = 0;
-
-double capitalMensualProvincia = 0;
-double capitalAnualProvincia = 0;
-double capitalTrimProvincia = 0;
-
-double capitalMensualNacion = 0;
-double totalAnualNacion = 0;
-double capitalTrimNacion=0;
-
-double capitalMensualHipotecario = 0;
-double capitalAnualHipotecario = 0;
-double capitalTrimHipotecario = 0;
-
 //-----------------  Banco Nación  -------------------------
 
 for (int i = 0; i < tasasBancoNacion.Length; i++)
@@ -138,9 +114,9 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
     {
         Console.WriteLine($"--- CÁLCULOS PARA: {nombreBanco} (Tasa promedio: {tasaAnualPromedio:F2}%) ---");
 
-        rendMensualNacion = tasaAnualPromedio / 12;
-        rendAnualNacion = tasaAnualPromedio;
-        rendTrimNacion = tasaAnualPromedio / 4;
+        double rendMensualNacion = tasaAnualPromedio / 12;
+        double rendAnualNacion = tasaAnualPromedio;
+        double rendTrimNacion = tasaAnualPromedio / 4;
 
 
         rendMensualNacion = rendMensualNacion / 100.0;
@@ -161,11 +137,11 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         capitalInicial = 850000;
 
         //Mostrar por pantalla rendimiento anual
-        totalAnualNacion = capitalInicial * (1 + rendAnualNacion);
-        ActualizarMejorOpcion(totalAnualNacion, "Banco Nación", "Anual");
+        double capitalAnualNacion = capitalInicial * (1 + rendAnualNacion);
+        ActualizarMejorOpcion(capitalAnualNacion, "Banco Nación", "Anual");
 
         Console.WriteLine("\r");
-        Console.WriteLine($"Rendimiento Anual= {totalAnualNacion:F2}");
+        Console.WriteLine($"Rendimiento Anual= {capitalAnualNacion:F2}");
         Console.WriteLine("\r");
         for (int i = 0; i < 4; i++)
         {
@@ -189,9 +165,9 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
     {
         Console.WriteLine($"\n\n--- CÁLCULOS PARA: {nombreBanco} (Tasa promedio: {tasaAnualPromedio:F2}%) ---");
 
-        rendMensualProvincia = tasaAnualPromedio /12;
-        rendAnualProvincia = tasaAnualPromedio;
-        rendTrimProvincia = tasaAnualPromedio /4;
+        double rendMensualProvincia = tasaAnualPromedio /12;
+        double rendAnualProvincia = tasaAnualPromedio;
+        double rendTrimProvincia = tasaAnualPromedio /4;
 
         rendMensualProvincia = rendMensualProvincia / 100.0;
         rendAnualProvincia = rendAnualProvincia / 100.0;
@@ -209,7 +185,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
         ActualizarMejorOpcion(totalMensualPovincia, "Banco Provincia", "Mensual");
         capitalInicial = 850000;
 
-        capitalAnualProvincia = capitalInicial * (1 + rendAnualProvincia);
+        double capitalAnualProvincia = capitalInicial * (1 + rendAnualProvincia);
         ActualizarMejorOpcion(capitalAnualProvincia, "Banco Provincia", "Anual");
         Console.WriteLine("\r");
         Console.WriteLine($"Rendimiento Anual=  {capitalAnualProvincia:F2}");
@@ -234,9 +210,9 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
     {
         Console.WriteLine($"\n\n--- CÁLCULOS PARA: {nombreBanco} (Tasa {tasaAnualPromedio:F2}%) ---");
 
-        rendMensualHipotecario = tasaAnualPromedio / 12;
-        rendAnualHipotecario = tasaAnualPromedio;
-        rendTrimHipotecario = tasaAnualPromedio / 4;
+        double rendMensualHipotecario = tasaAnualPromedio / 12;
+        double rendAnualHipotecario = tasaAnualPromedio;
+        double rendTrimHipotecario = tasaAnualPromedio / 4;
 
         rendMensualHipotecario = rendMensualHipotecario / 100.0;
         rendAnualHipotecario = rendAnualHipotecario / 100.0;
@@ -256,7 +232,7 @@ void CalcularYMostrarRendimientos(string nombreBanco, double tasaAnualPromedio, 
 
         capitalInicial = 850000;
 
-        capitalAnualHipotecario = capitalInicial * (1 + rendAnualHipotecario);
+        double capitalAnualHipotecario = capitalInicial * (1 + rendAnualHipotecario);
         ActualizarMejorOpcion(capitalAnualHipotecario, "Banco Hipotecario", "Anual");
 
         Console.WriteLine("\r");
